@@ -26,11 +26,11 @@ io.on("connection", (socket) => {
     text: "A user has joined the chat"
   });
 
-  // socket.on("message", (message, callback) => {
-  //   io.emit("message", message);
+  socket.on("message", (message, callback) => {
+    io.emit("message", message);
 
-  //   callback();
-  // });
+    callback();
+  });
   socket.on("sendLocation", (location, callback) => {
     io.emit("locationMessage", `https://www.google.com/maps?q=${location.latitude},${location.longitude}`);
 
